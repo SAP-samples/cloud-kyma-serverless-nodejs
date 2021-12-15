@@ -1,0 +1,51 @@
+
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: Function
+metadata:
+  name: {{.Values.twitterurl}}
+  namespace: {{.Values.namespace}}
+  labels:
+     name: {{.Values.appname}}
+spec:
+  type: git
+  runtime: "nodejs12"
+  source: gamerepo
+  reference: {{.Values.gitbranch}}
+  baseDir: "/serverless/twitter"
+
+---
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  namespace: {{.Values.namespace}}
+  labels:
+    app: {{.Values.twitterurl}}
+    name: {{.Values.appname}}
+  name: {{.Values.twitterurl}}
+spec:
+  service:
+    host: {{.Values.twitterurl}}
+    name: {{.Values.twitterurl}}
+    port: 80
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      methods: ["GET", "PUT", "POST", "HEAD", "PATCH", "DELETE" ]
+      accessStrategies:
+        - handler: allow
+      mutators: [] 
+
+ 
+
+
+
+
+     
+
+
+
+   
+  
+  
+  
+

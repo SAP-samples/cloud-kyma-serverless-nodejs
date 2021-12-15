@@ -1,0 +1,42 @@
+
+emsecret: '{
+        "emname": "emgame",
+        "namespace": "ref/emgame/1002",
+        "options": {
+          "management": true,
+          "messaging": true,
+          "messagingrest": true
+        },
+        "rules": {
+          "queueRules": {
+            "publishFilter": [
+            "${namespace}/*"
+          ],
+          "subscribeFilter": [
+            "${namespace}/*"
+          ]
+        },
+        "topicRules": {
+          "publishFilter": [
+          "${namespace}/*"
+        ],
+        "subscribeFilter": [
+          "${namespace}/*"
+        ]
+        }
+      },
+      "version": "1.1.0"
+    }'
+
+namespace: game
+image: docker image name
+appname: fly-a-balloon
+apphost: balloon
+gitusername: gitusername in base64
+gitpassword: git password in base64
+giturl: repository url
+gitbranch: master
+functionshttpproxy: https://connectivity-proxy.cc:20003
+twitterurl: twittershare
+deletequeueurl: deletequeue
+eminstance: em-game

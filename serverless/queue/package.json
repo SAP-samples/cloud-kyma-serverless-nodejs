@@ -1,0 +1,17 @@
+{
+    "engines": {
+        "node": ">=8.10"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "@sap/hdbext": "^7.3.1",
+        "querystring": "^0.2.1",
+        "datetime-difference": "^1.0.2"
+    },
+    "messaging": {
+        "kind": "enterprise-messaging-shared",
+        "queue": {
+            "name": "ref/emgame/1002"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="../img/favicon.ico"/>
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/balloon_style.css" rel="stylesheet" />
+    <title>game</title>
+    <script>
+      const roomName = "<%= roomid %>";
+      const url = "<%= url %>";
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="../js/score.js"></script>
+  </head>
+  <body>
+    <div id="main"></div>   
+    <div id="showData" class="leaderboard animate__animated animate__fadeInDown">
+    </div>
+    <img src="../img/finish.png" class="flag" alt="flag">
+    <form id="send-container"></form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

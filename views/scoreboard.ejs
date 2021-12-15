@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="../img/favicon.ico"/>
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/custom.css" rel="stylesheet" />
+   
+    <title>game</title>
+    <script>
+      const roomName = "<%= roomid %>";
+      const url = "<%= url %>";
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="../js/score.js"></script>
+    
+  </head>
+  <body>
+    <div class="container">
+    <div id="scores" style="display: none">this is scoreboard</div>
+
+    <div id="showData">
+        <table class="table table-striped table-dark">
+            <tr>
+                <th>Player</th>
+                <th>Score</th>
+            </tr>
+        <% Object.keys(score).forEach(name => { %>
+          <% if(name.toLowerCase() !== "admin"){ %>
+            <tr>
+                <td><%= name %></td>
+                <td><%= score[name] %></td>
+            </tr>
+          <% } }) %>
+        </table>
+    </div>
+    <form action="../twitter" method="POST">
+      <input type="hidden" value="<%= roomid %>" name="room">
+      <button class="btn btn-secondary col-4" type="submit">twitter Open Connector</button>
+    </form>
+  </div>
+
+
+    
+    <form id="send-container"></form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

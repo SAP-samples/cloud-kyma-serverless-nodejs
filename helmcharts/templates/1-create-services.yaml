@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.appname}}
+  namespace: {{.Values.namespace}}
+  labels:
+    app: {{.Values.appname}}
+    service: {{.Values.appname}}
+    name: {{.Values.appname}}
+spec:
+  ports:
+  - port: 3000
+    name: http
+  selector:
+    app: {{.Values.appname}} 
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{.Release.Name}}-secret
+  namespace: {{.Values.namespace}}
+type: opaque
+stringData: 
+  emsecret: >
+     {{.Values.emsecret}} 
+---
+
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: {{.Values.eminstance}}
+  namespace: {{.Values.namespace}}
+spec: 
+  clusterServiceClassExternalName: enterprise-messaging
+  clusterServicePlanExternalName: default
+  parametersFrom: 
+    - secretKeyRef: 
+        name: {{.Release.Name}}-secret
+        key: emsecret
+
+
+
+
+
+       

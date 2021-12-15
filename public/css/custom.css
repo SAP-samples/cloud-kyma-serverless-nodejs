@@ -1,0 +1,48 @@
+body {
+  background-image:url("../img/back.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* overflow: hidden; */
+}
+.rooms {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  background-color: #fff;
+  height: 50%;
+  border-radius: 20px;
+  text-align: center;
+  padding: 22px;
+}
+
+.col1 {
+  background-color: #c6d1e7;
+  border-radius: 20px;
+  max-height: 300px;
+  min-height: 260px;
+  overflow-y: auto;
+}
+canvas {
+  border:1px solid #d3d3d3;
+  background-color: #f1f1f1;
+}
+.info{
+  color:rgb(250, 250, 253);
+  padding-top: 2%;
+}
+.welcome-page{
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+    background-color: #fff;
+    height: 300px;
+    border-radius: 20px;
+    text-align: center;
+    padding:22px;
+  }
+  @media only screen and (max-width: 600px) {
+    .rooms { width: 90%; }
+
+      .welcome-page{ width: 80%; }
+        
+  }

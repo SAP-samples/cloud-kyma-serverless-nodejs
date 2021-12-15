@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: amgame-githubtools
+  namespace: {{.Values.namespace}}
+  labels:
+     name: {{.Values.appname}}
+type: opaque
+data:
+  username: {{.Values.gitusername}}
+  password: {{.Values.gitpassword}}
+
+---
+
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: GitRepository
+metadata:
+  name: gamerepo
+  namespace: {{.Values.namespace}}
+  labels:
+     name: {{.Values.appname}}
+spec:
+  url: {{.Values.giturl}}
+  auth:
+    type: basic
+    secretName: amgame-githubtools   
+ 
+

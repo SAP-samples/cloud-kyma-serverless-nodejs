@@ -1,0 +1,67 @@
+apiVersion: serverless.kyma-project.io/v1alpha1
+kind: Function
+metadata:
+  name: {{.Values.deletequeueurl}}
+  namespace: {{.Values.namespace}}
+  labels:
+     name: {{.Values.appname}}
+spec:
+  type: git
+  runtime: nodejs12
+  source: gamerepo
+  reference: {{.Values.gitbranch}}
+  baseDir: /serverless/queue
+
+---
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  namespace: {{.Values.namespace}}
+  labels:
+    app: {{.Values.deletequeueurl}}
+    name: {{.Values.appname}}
+  name: {{.Values.deletequeueurl}}
+spec:
+  service:
+    host: {{.Values.deletequeueurl}}
+    name: {{.Values.deletequeueurl}}
+    port: 80
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      methods: ["GET", "PUT", "POST", "HEAD", "PATCH", "DELETE" ]
+      accessStrategies:
+        - handler: allow
+      mutators: []
+
+---
+
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: deletequeue-binding
+  namespace: {{.Values.namespace}}
+  labels:
+    name: {{.Values.appname}}
+spec:
+  instanceRef:
+    name: {{.Values.eminstance}}
+
+        
+---
+
+apiVersion: servicecatalog.kyma-project.io/v1alpha1
+kind: ServiceBindingUsage
+metadata:
+  name: amgame-deletequeue-bindingusage
+  namespace: {{.Values.namespace}}
+  labels:
+     name: {{.Values.deletequeueurl}}
+spec:
+  serviceBindingRef:
+    name: deletequeue-binding
+  usedBy:
+    kind: Function
+    name: {{.Values.deletequeueurl}}
+
+

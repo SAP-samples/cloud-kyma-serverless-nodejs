@@ -1,0 +1,86 @@
+
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: em-game-binding
+  namespace: {{.Values.namespace}}
+  labels:
+    name: {{.Values.appname}}
+spec:
+  instanceRef:
+    name: {{.Values.eminstance}}
+
+        
+---
+
+apiVersion: servicecatalog.kyma-project.io/v1alpha1
+kind: ServiceBindingUsage
+metadata:
+  name: amgame-emservicebindingusage
+  namespace: {{.Values.namespace}}
+  labels:
+     name: {{.Values.appname}}
+spec:
+  serviceBindingRef:
+    name: em-game-binding
+  usedBy:
+    kind: deployment
+    name: {{.Values.appname}}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{.Values.namespace}}
+  name: {{.Values.appname}}
+  labels:
+    app: {{.Values.appname}}
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{.Values.appname}}
+      version: v1
+  template:
+    metadata:
+      namespace: {{.Values.namespace}}
+      labels:
+        app: {{.Values.appname}}
+        version: v1
+    spec:
+      containers:
+        - name: {{.Values.appname}}
+          image: {{.Values.image}}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+
+---
+
+ 
+
+
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  namespace: {{.Values.namespace}}
+  labels:
+    app: {{.Values.appname}}
+    name: {{.Values.appname}}
+  name: {{.Values.appname}}
+spec:
+  service:
+    host: {{.Values.apphost}}
+    name: {{.Values.appname}}
+    port: 3000
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      methods: ["GET", "PUT", "POST", "HEAD", "PATCH", "DELETE" ]
+      accessStrategies:
+        - handler: allow
+      mutators: [] 
+
+            
