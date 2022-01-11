@@ -16,13 +16,13 @@ The Gamified Reference Application is developed using Node.js and runs on the SA
 ### 1. Create Room
 ![Create Room](public/img/1.jpg)
 
-### 1. Play Game
+### 2. Play Game
 ![Play Game](public/img/2.jpg)
 
-### 1. End Game
+### 3. End Game
 ![End Game](public/img/3.jpg)
 
-### 1. Publish Result
+### 4. Publish Result
 ![Publish Result](public/img/4.jpg)
 
 
