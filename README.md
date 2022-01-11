@@ -107,14 +107,17 @@ For more information, see [Configure Entitlements and Quotas for Subaccounts](ht
 1. Create New Room:
     - Go to the index page and enter a room name, Number of participants(min:2 and max:5) and choose create room button.
     - Once Room is created, you will be redirected to the admin page.
+    - ![Create Room](public/img/create_room.png)
 2. Join The Room:
     - On the Index page, you can join any room from the Room's list.
     - You can directly Join the Room via Scanning the Room's QR code, which the Room's admin will share.
+    - ![Create Room](public/img/join_room.png)    
 3. Start The Game:
     - Once sufficient players have joined the Room, the admin can start the game by clicking on the `Start Game` button.
     - If the admin wants to share the live gameBoard, the admin can click on the `gameBoard` button before starting the game.
 4. Play The Game:
-    - Once the admin starts the game, all players can start playing the game by clicking on the screen. 
+    - Once the admin starts the game, all players can start playing the game by clicking on the screen.
+    - ![Create Room](public/img/play_game.png) 
 
 ## License
 Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
