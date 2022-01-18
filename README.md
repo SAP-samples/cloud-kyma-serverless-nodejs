@@ -1,4 +1,5 @@
 # Gamified Cloud Kyma Nodejs Application
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-kyma-serverless-nodejs)](https://api.reuse.software/info/github.com/SAP-samples/cloud-kyma-serverless-nodejs)
 
 ## Description
 
