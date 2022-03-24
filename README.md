@@ -1,15 +1,15 @@
-# Gamified Cloud Kyma Nodejs Application
+# Gamified Business Technology Platform Kyma Nodejs Application
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-kyma-serverless-nodejs)](https://api.reuse.software/info/github.com/SAP-samples/cloud-kyma-serverless-nodejs)
 
 ## Description
 
-The Gamified Reference Application is a sample Node.js application that showcases how to use and implement WebSockets, SAP BTP, serverless runtime, SAP Open Connectors and others. This application runs on the SAP BTP, Cloud Foundry environment, and the SAP BTP, Kyma environment. The current scope of the application is to demonstrate the capabilities of the SAP Event Mesh service for creating service instances, queues, subscriptions for these queue, and sending and consuming the messages through APIs.
+The Gamified Application is a sample Node.js application that showcases how to use and implement WebSockets, SAP BTP, serverless runtime, SAP Open Connectors and others. This application runs on the SAP BTP, Cloud Foundry environment, and the SAP BTP, Kyma environment. The current scope of the application is to demonstrate the capabilities of the SAP Event Mesh service for creating service instances, queues, subscriptions for these queue, and sending and consuming the messages through APIs.
 
 
 ## Architecture
 
 ### Solution Diagram
-The Gamified Reference Application is developed using Node.js and runs on the SAP Business Technology Platform (SAP BTP). It consumes services in SAP BTP like SAP Event Mesh and SAP Open Connectors. The events generated in the gaming backend are inserted into a queue in the Event Mesh service. The application consumes these events to calculate the game result, and the serverless function publishes the result on Twitter via the SAP Open Connectors.
+The Gamified  Application is developed using Node.js and runs on the SAP Business Technology Platform (SAP BTP). It consumes services in SAP BTP like SAP Event Mesh and SAP Open Connectors. The events generated in the gaming backend are inserted into a queue in the Event Mesh service. The application consumes these events to calculate the game result, and the serverless function publishes the result on Twitter via the SAP Open Connectors.
 ![solution diagram](public/img/solution_diagram.jpg)
 
 ## Game Flow
