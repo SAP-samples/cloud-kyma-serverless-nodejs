@@ -1,6 +1,12 @@
 # Gamified Business Technology Platform Kyma Nodejs Application
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-kyma-serverless-nodejs)](https://api.reuse.software/info/github.com/SAP-samples/cloud-kyma-serverless-nodejs)
+![](https://img.shields.io/badge/STATUS-NOT%20CURRENTLY%20MAINTAINED-red.svg?longCache=true&style=flat)
 
+## ⚠ ARCHIVED - NO MAINTENANCE ⚠
+
+📢 **Please be aware that this sample is no longer maintained and the repository is archived**
+
+As an alternative, we recommend to use the samples based on the [SAP BTP Developer Guide](https://help.sap.com/docs/btp/btp-developers-guide/tutorials-for-sap-cloud-application-programming-model).
 ## Description
 
 The Gamified Application is a sample Node.js application that showcases how to use and implement WebSockets, SAP BTP, serverless runtime, SAP Open Connectors and others. This application runs on the SAP BTP, Cloud Foundry environment, and the SAP BTP, Kyma environment. The current scope of the application is to demonstrate the capabilities of the SAP Event Mesh service for creating service instances, queues, subscriptions for these queue, and sending and consuming the messages through APIs.
